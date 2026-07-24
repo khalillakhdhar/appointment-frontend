@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UserStorageService } from '../../../core/services/user-storage-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,4 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
-export class Navbar {}
+export class Navbar {
+ readonly userStorage = inject(UserStorageService);
+  private readonly router = inject(Router)
+
+  changeProfile(): void {
+    this.userStorage.clearCurrentUser();
+    void this.router.navigateByUrl('/profiles');
+  }
+
+
+}
