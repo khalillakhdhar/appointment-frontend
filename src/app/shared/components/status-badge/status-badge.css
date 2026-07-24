@@ -1,0 +1,25 @@
+.badge
+{
+  display:inline-flex;
+  padding: 35rem .65rem;
+   border-radius: 999px;
+    font-size:.78rem;
+     font-weight: 700;
+}
+.pending
+
+{
+  background: #fff4cf;
+  color: #7a5800;
+
+}
+.accepted
+{
+  background: #dff7e7;
+  color:#11642f
+}
+.rejected
+{
+  background:#fde3e3;
+  color:#8a1c1c
+}
