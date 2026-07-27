@@ -1,1 +1,103 @@
-<p>appointment-form works!</p>
+<section class="page narrow">
+
+<div class="page-heading">
+  <span class="eyebrow"> Espace utilisateur</span>
+  <h1>Nouvelle demande de rendez-vous</h1>
+  <p>Tout les champs sont obligatoire</p>
+
+</div>
+@if(successMessage()) {<div class="alert success">{{successMessage()}}</div>}
+@if(errorMessage()) {<div class="alert error">{{errorMessage()}}</div>}
+<form class="card form-grid" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <div class="field full">
+    <label for="fullName">Nom Complet</label>
+    <input id="fullName" type="text" formControlName="fullName" [class.invalid]="isInvalid('fullName')">
+    @if(isInvalid('fullName'))
+    {
+      <small class="error-text">
+        Veuillez verifier le nom
+      </small>
+
+    }
+
+
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" type="text" formControlName="email" [class.invalid]="isInvalid('email')">
+    @if(isInvalid('email'))
+    {
+      <small class="error-text">
+        Veuillez saisir un email valid
+      </small>
+
+    }
+
+
+  </div>
+<div class="field">
+    <label for="telephone">Telephone</label>
+    <input id="telephone" type="text" formControlName="phone" [class.invalid]="isInvalid('phone')">
+    @if(isInvalid('phone'))
+    {
+      <small class="error-text">
+        Veuillez saisir un numéro de téléphone valide
+      </small>
+
+    }
+
+
+  </div>
+  <div class="field">
+    <label for="appointmentDate">Date</label>
+    <input id="appointmentDate" type="date" formControlName="appointmentDate" [class.invalid]="isInvalid('appointmentDate')">
+    @if(isInvalid('appointmentDate'))
+    {
+      <small class="error-text">
+        Veuillez saisir une appointmentDate valide
+      </small>
+
+    }
+
+
+  </div>
+  <div class="field">
+    <label for="appointmentTime">Heure</label>
+    <input id="appointmentTime" type="time" formControlName="appointmentTime" [class.invalid]="isInvalid('appointmentTime')">
+    @if(isInvalid('appointmentTime'))
+    {
+      <small class="error-text">
+        Veuillez saisir une heure valide
+      </small>
+
+    }
+
+
+  </div>
+  <div class="field full">
+    <div class="label-row"><label for="reason">Raison</label><small>{{reasonRemaining()}} caractéres restants</small></div>
+    <textarea placeholder="raison" formControlName="reason" [class.invalid]="isInvalid('reason')">
+    @if(isInvalid('reason'))
+    {
+      <small class="error-text">
+        Veuillez la raison et le nombre de caractéres
+      </small>
+
+    }
+</textarea>
+
+  </div>
+<div class="full actions">
+  <button class="btn primary" type="submit" [disabled]="loading()"
+  >
+{{ loading() ? 'Envoie en cours...' : 'Envoyez la demande' }}
+
+</button>
+
+
+</div>
+</form>
+
+
+</section>

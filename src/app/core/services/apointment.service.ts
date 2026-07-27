@@ -12,7 +12,7 @@ import {
 @Injectable({ providedIn: 'root' })
 export class AppointmentService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = `${environment.apiUrl}/appointments`;
+  private readonly apiUrl = `${environment.apiUrl}/Appointments`;
 
   getAll(): Observable<Appointment[]> {
     return this.http.get<Appointment[]>(this.apiUrl);
