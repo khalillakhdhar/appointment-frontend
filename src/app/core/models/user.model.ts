@@ -1,6 +1,7 @@
-export type UserRole='admin' | 'user';
+export type UserRole = 'admin' | 'user';
+
 export interface User {
-  id:number;
-  fullName:string;
-  role:UserRole;
+  id: number;
+  fullName: string;
+  role: UserRole;
 }
