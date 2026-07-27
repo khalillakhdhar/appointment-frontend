@@ -1,0 +1,7 @@
+.hero { display:grid; grid-template-columns:1.5fr .8fr; align-items:center; gap:3rem; min-height:calc(100vh - 72px); }
+.hero h1 { max-width:760px; font-size:clamp(2.2rem, 5vw, 4.5rem); line-height:1.02; margin:.7rem 0 1rem; }
+.hero p { max-width:650px; font-size:1.1rem; color:#53627a; }
+.hero-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1.5rem; }
+.hero-card { background:white; border:1px solid #dbe4f0; border-radius:22px; padding:2rem; box-shadow:0 18px 50px rgba(18,35,63,.1); }
+.hero-card ul { padding-left:1.2rem; color:#53627a; line-height:2; }
+@media (max-width:800px) { .hero { grid-template-columns:1fr; min-height:auto; } }

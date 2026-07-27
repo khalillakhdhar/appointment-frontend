@@ -1,0 +1,6 @@
+.search-bar { display:flex; align-items:flex-end; gap:1rem; background:white; padding:1.25rem; border:1px solid #dce5f0; border-radius:16px; margin-bottom:1.5rem; }
+.grow { flex:1; }
+.cards-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; }
+.card-top { display:flex; justify-content:space-between; gap:1rem; align-items:center; }
+dl div { display:grid; grid-template-columns:80px 1fr; gap:.5rem; margin-top:.8rem; } dt { color:#66758b; } dd { margin:0; }
+@media (max-width:600px) { .search-bar { flex-direction:column; align-items:stretch; } }

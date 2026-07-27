@@ -1,1 +1,17 @@
-<p>user-selector works!</p>
+<section class="page narrow">
+  <div class="page-heading center">
+    <span class="eyebrow">Simulation locale</span>
+    <h1>Choisissez un profil</h1>
+    <p>Aucune authentification réelle : les profils sont initialisés dans le localStorage.</p>
+  </div>
+
+  <div class="profile-grid">
+    @for (user of userStorage.users(); track user.id) {
+      <button type="button" class="profile-card" (click)="select(user)">
+        <span class="avatar">{{ user.role === 'admin' ? 'A' : 'U' }}</span>
+        <strong>{{ user.fullName }}</strong>
+        <span>{{ user.role === 'admin' ? 'Gérer toutes les demandes' : 'Créer et rechercher des demandes' }}</span>
+      </button>
+    }
+  </div>
+</section>

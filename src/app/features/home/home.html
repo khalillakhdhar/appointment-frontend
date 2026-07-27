@@ -1,1 +1,30 @@
-<p>home works!</p>
+<section class="hero page">
+  <div>
+    <span class="eyebrow">Angular 21 + ASP.NET Core 9</span>
+    <h1>Gestion simple des demandes de rendez-vous</h1>
+    @if (userStorage.currentUser(); as user) {
+      <p>Bienvenue {{ user.fullName }}. Votre rôle actif est <strong>{{ user.role }}</strong>.</p>
+      <div class="hero-actions">
+        @if (user.role === 'admin') {
+          <a class="btn primary" routerLink="/admin">Ouvrir l’administration</a>
+        } @else {
+          <a class="btn primary" routerLink="/request">Créer une demande</a>
+          <a class="btn secondary" routerLink="/search">Rechercher mes rendez-vous</a>
+        }
+      </div>
+    } @else {
+      <p>Sélectionnez d’abord un profil stocké localement dans le navigateur.</p>
+      <a class="btn primary" routerLink="/profiles">Choisir un profil</a>
+    }
+  </div>
+  <aside class="hero-card">
+    <strong>Concepts travaillés</strong>
+    <ul>
+      <li>Composants standalone</li>
+      <li>Reactive Forms typés</li>
+      <li>HttpClient et API REST</li>
+      <li>Signals et computed</li>
+      <li>localStorage</li>
+    </ul>
+  </aside>
+</section>

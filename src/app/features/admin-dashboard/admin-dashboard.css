@@ -1,0 +1,12 @@
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:1.25rem; }
+.stat { background:white; border:1px solid #dce5f0; border-radius:16px; padding:1.25rem; display:flex; flex-direction:column; gap:.3rem; }
+.stat span { color:#66758b; } .stat strong { font-size:2rem; }
+.filters { display:flex; gap:.5rem; flex-wrap:wrap; margin:1rem 0; }
+.filters button { border:1px solid #cfd9e6; background:white; padding:.55rem .85rem; border-radius:999px; cursor:pointer; }
+.filters button.active { background:#12233f; color:white; }
+.table-card { background:white; border:1px solid #dce5f0; border-radius:16px; overflow:auto; }
+table { width:100%; border-collapse:collapse; min-width:980px; } th, td { padding:1rem; border-bottom:1px solid #edf1f6; text-align:left; vertical-align:top; } th { background:#f7f9fc; color:#526077; font-size:.82rem; } td small { display:block; margin-top:.25rem; color:#748197; }
+.reason-cell { max-width:260px; } .row-actions { display:flex; gap:.4rem; flex-wrap:wrap; }
+.action { border:0; border-radius:8px; padding:.45rem .65rem; cursor:pointer; font-weight:700; } .accept { background:#dff7e7; color:#11642f; } .reject { background:#fff1d6; color:#815800; } .delete { background:#fde3e3; color:#8a1c1c; } .action:disabled { opacity:.45; cursor:not-allowed; }
+.empty-cell { text-align:center; color:#748197; }
+@media (max-width:850px) { .stats-grid { grid-template-columns:repeat(2,1fr); } }

@@ -1,0 +1,5 @@
+.profile-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:1.25rem; margin-top:2rem; }
+.profile-card { border:1px solid #d9e1ec; background:white; border-radius:18px; padding:2rem; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:.7rem; box-shadow:0 10px 30px rgba(18,35,63,.08); }
+.profile-card:hover { transform:translateY(-3px); border-color:#3d72d9; }
+.avatar { width:64px; height:64px; border-radius:50%; display:grid; place-items:center; color:white; background:#2563c9; font-size:1.5rem; font-weight:800; }
+@media (max-width:650px) { .profile-grid { grid-template-columns:1fr; } }
