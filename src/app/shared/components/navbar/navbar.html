@@ -1,1 +1,20 @@
-<p>navbar works!</p>
+<header class="navbar">
+  <a class="brand" routerLink="/">RendezVous</a>
+
+  @if (userStorage.currentUser(); as user) {
+    <nav>
+      <a routerLink="/" routerLinkActive="active" >Accueil</a>
+      @if (user.role === 'admin') {
+        <a routerLink="/admin" routerLinkActive="active">Administration</a>
+      } @else {
+        <a routerLink="/request" routerLinkActive="active">Nouvelle demande</a>
+        <a routerLink="/search" routerLinkActive="active">Mes rendez-vous</a>
+      }
+    </nav>
+
+    <div class="profile">
+      <span>{{ user.fullName }} · {{ user.role }}</span>
+      <button type="button" class="btn secondary small" (click)="changeProfile()">Changer</button>
+    </div>
+  }
+</header>
