@@ -3,7 +3,7 @@
 
   @if (userStorage.currentUser(); as user) {
     <nav>
-      <a routerLink="/" routerLinkActive="active" >Accueil</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Accueil</a>
       @if (user.role === 'admin') {
         <a routerLink="/admin" routerLinkActive="active">Administration</a>
       } @else {

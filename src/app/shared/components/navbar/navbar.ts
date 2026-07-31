@@ -1,10 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { UserStorageService } from '../../../core/services/user-storage-service';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  imports: [
+    RouterLink,
+    RouterLinkActive
+  ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
