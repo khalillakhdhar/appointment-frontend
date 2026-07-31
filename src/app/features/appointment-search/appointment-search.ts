@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-appointment-search',
-  imports: [ReactiveFormsModule,StatusBadge],
+  imports: [ReactiveFormsModule],
   templateUrl: './appointment-search.html',
   styleUrl: './appointment-search.css',
 })
@@ -27,7 +27,7 @@ readonly appointments=signal<Appointment[]>([]);
 readonly errorMessage=signal('');
 readonly searchForm=this.fb.nonNullable.group(
   {
-    fullName:[this.userStorage.currentUser()?.fullName ?? '',Validators.required]
+    fullName:[this.userStorage.currentUser()?.fullName ?? '',[Validators.required,Validators.minLength(2)]]
   }
 )
 search():void{

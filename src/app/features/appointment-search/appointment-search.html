@@ -1,1 +1,22 @@
-<p>appointment-search works!</p>
+<section class="page">
+<div class="page-heading split">
+<div>
+  <span class="eyebrow">Recherche HTTP</span><h1>Rechercher un redez vous</h1>
+  <p>La recherche intérroge l'API avec le paramétre fullName</p>
+</div>
+
+</div>
+<form class="search-bar" [formGroup]="searchForm" (ngSubmit)="search()">
+  <div class="field-grow">
+<label for="searchName">Nom complet:</label>
+<input id="searchName" type="search" formControlName="fullName">
+@if(searchForm.controls.fullName.invalid && searchForm.controls.fullName.touched)
+{
+  <small class="error-text">Sasissez au moins deux caractére</small>
+}
+</div>
+</form>
+
+
+
+</section>
