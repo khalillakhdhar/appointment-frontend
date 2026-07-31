@@ -3,10 +3,11 @@ import { AppointmentService } from '../../core/services/apointment.service';
 import { Appointment, AppointmentStatus } from '../../core/models/appointment.model';
 import { finalize } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { StatusBadge } from "../../shared/components/status-badge/status-badge";
 
 @Component({
   selector: 'app-admin-dashboard',
-  imports: [],
+  imports: [StatusBadge],
   templateUrl: './admin-dashboard.html',
   styleUrl: './admin-dashboard.css',
 })
@@ -48,6 +49,7 @@ loadAppointments():void{
 }
 setFilter(filter:'All' | AppointmentStatus){
   this.filter.set(filter);
+  console.log(filter);
 }
 updateStatus(appointment:Appointment,status:'Accepted' | 'Rejected')
 {

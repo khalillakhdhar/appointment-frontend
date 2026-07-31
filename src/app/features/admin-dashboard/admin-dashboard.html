@@ -1,1 +1,74 @@
-<p>admin-dashboard works!</p>
+<section class="page">
+<div class="page-heading split">
+<div>
+  <span class="eyebrow"></span><h1>Espace administration</h1>
+  <button class="btn secondary" type="button" (click)="loadAppointments()"> Actualiser</button>
+</div>
+
+</div>
+<div class="stats-grid">
+  <article class="stat"><span>Total</span><strong>{{total()}}</strong></article>
+  <article class="stat"><span>Pending</span><strong>{{pending()}}</strong></article>
+  <article class="stat"><span>Accepté</span><strong>{{accepted()}}</strong></article>
+  <article class="stat"><span>Refusé:</span><strong>{{rejected()}}</strong></article>
+</div>
+<div class="filters">
+@for (item of ['All','Pending','Accepted','Rejected']; track item) {
+<button type="button" [class.active]="filter()=== item" (click)="setFilter($any(item))">{{item }}</button>
+
+}
+@if(successMessage()) { <div class="alert success">{{successMessage()}}</div>  }
+@if(errorMessage()) { <div class="alert error">{{errorMessage()}}</div>  }
+@if(loading()) { <div class="empty-state">chargement des rendez-vous</div>  }
+</div>
+@if(!loading())
+{
+<div class="table-card">
+<table>
+  <thead>
+    <tr>
+      <th>Demandeur</th>
+      <th>Date</th>
+      <th>Contact</th>
+      <th>Motif</th>
+      <th>Statu</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+<tbody>
+@for(appointment of filteredAppointments(); track appointment.id)
+{
+  <tr>
+    <td><strong>{{appointment.fullName}}</strong> <small>{{appointment.id}}</small></td>
+    <td>
+       {{appointment.appointmentDate}} <small>{{appointment.appointmentTime}}</small>
+    </td>
+    <td>{{appointment.email}} <small>{{appointment.phone}}</small></td>
+    <td class="reason-cell">{{appointment.reason}}</td>
+<td><app-status-badge [status]="appointment.status"></app-status-badge></td>
+<td>
+  <div class="row-actions">
+<button class="action accept" type="button" [disabled]="actionId()===appointment.id || appointment.status==='Accepted'" (click)="updateStatus(appointment, 'Accepted')">Accepter</button>
+<button class="action reject" type="button" [disabled]="actionId()===appointment.id || appointment.status==='Rejected'" (click)="updateStatus(appointment, 'Rejected')">Refuser</button>
+<button class="action delete" type="button" [disabled]="actionId()===appointment.id" (click)="delete(appointment)">Supprimer</button>
+
+
+  </div>
+</td>
+  </tr>
+}
+
+
+</tbody>
+</table>
+
+
+
+</div>
+
+
+}
+
+
+
+</section>
