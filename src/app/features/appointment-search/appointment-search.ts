@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-appointment-search',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, StatusBadge],
   templateUrl: './appointment-search.html',
   styleUrl: './appointment-search.css',
 })

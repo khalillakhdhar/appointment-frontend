@@ -15,7 +15,29 @@
   <small class="error-text">Sasissez au moins deux caractére</small>
 }
 </div>
+<button class="btn primary" type="submit" [disabled]="loading()">{{loading() ? 'Recherche...': 'Rechercher'}}</button>
 </form>
+@if( errorMessage()){
+  <div class="alert error">{{errorMessage()}}</div>
+}
+@if (searched() && !loading() && !errorMessage() && appointments.length===0 )
+{
+  <div class="empty-state">Aucun rendez-vous trouvé pour ce nom.</div>
+}
+@for(appointment of appointments(); track appointment.id)
+{
+  <article class="card appointment-card">
+<div class="card-top"><strong>{{appointment.fullName}}</strong><app-status-badge [status]="appointment.status"></app-status-badge></div>
+<dl>
+  <div><dt>Date</dt><dd>{{appointment.appointmentDate}}</dd></div>
+  <div><dt>Heure</dt><dd>{{appointment.appointmentTime}}</dd></div>
+  <div><dt>Motif</dt><dd>{{appointment.reason}}</dd></div>
+  <div><dt>Demandé le</dt><dd>{{appointment.createdAt}}</dd></div>
+</dl>
+
+  </article>
+
+}
 
 
 
